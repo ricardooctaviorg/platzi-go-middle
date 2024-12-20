@@ -30,4 +30,13 @@ func main() {
 
 	fmt.Println(myMap)
 
+	myslice := []int{100, 200, 300}
+	fmt.Println(myslice, len(myslice), cap(myslice))
+
+	for i, value := range myslice {
+		fmt.Println(i, value)
+	}
+	myslice = append(myslice, 50)
+	fmt.Println(myslice)
+
 }
