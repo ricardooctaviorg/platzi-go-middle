@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"time"
 )
 
 func main() {
@@ -39,4 +40,21 @@ func main() {
 	myslice = append(myslice, 50)
 	fmt.Println(myslice)
 
+	myChannel := make(chan int, 10)
+	go doSomthing(myChannel)
+	<-myChannel
+
+	g := 22
+	z := &g
+	p := *z
+
+	fmt.Println(p)
+
+}
+
+func doSomthing(myChannel chan int) {
+	fmt.Println("Do init Something")
+	time.Sleep(time.Second * 3)
+	fmt.Println("Do end Something")
+	myChannel <- 1
 }
